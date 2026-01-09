@@ -12,7 +12,6 @@ import SwiftData
 struct AtlasPowerliftingAppApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
             Exercise.self,
             WorkoutProgram.self,
             Workout.self,
