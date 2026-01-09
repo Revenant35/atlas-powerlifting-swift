@@ -10,6 +10,7 @@ import SwiftData
 
 struct WorkoutDetailsScreen: View {
     @Bindable var workout: Workout
+    @State private var showingAddExercise = false
 
     var body: some View {
         Group {
@@ -57,24 +58,14 @@ struct WorkoutDetailsScreen: View {
                     }
                 }
             }
+            .sheet(isPresented: $showingAddExercise) {
+                AddWorkoutExerciseSheet(workout: workout)
+            }
         }
     }
 
     private func addExercise() {
-        withAnimation {
-            // Get the next order number
-            let nextOrder = (workout.exercises.map { $0.order }.max() ?? 0) + 1
-
-            let newWorkoutExercise = WorkoutExercise(
-                exercise: nil,
-                order: nextOrder,
-                restTime: 90,
-                warmupSets: 0,
-                workout: workout
-            )
-            
-            workout.exercises.append(newWorkoutExercise)
-        }
+        showingAddExercise = true
     }
 }
 
