@@ -19,16 +19,46 @@ struct ExerciseSelectionList: View {
 
     @Environment(\.dismiss) private var dismiss
 
+    @State private var searchQuery = ""
+    @State private var selectedMuscleGroupFilters: Set<MuscleGroup> = []
+
+    private var availableMuscleGroups: [MuscleGroup] {
+        let allMuscleGroups = exercises.flatMap { $0.muscleGroups }
+        return Array(Set(allMuscleGroups)).sorted { $0.rawValue < $1.rawValue }
+    }
+
+    private var filteredExercises: [Exercise] {
+        exercises.filter { exercise in
+            // Search filter
+            let matchesSearch = searchQuery.isEmpty ||
+                exercise.name.localizedCaseInsensitiveContains(searchQuery)
+
+            // Muscle group filter
+            let matchesMuscleGroups = selectedMuscleGroupFilters.isEmpty ||
+                !Set(exercise.muscleGroups).isDisjoint(with: selectedMuscleGroupFilters)
+
+            return matchesSearch && matchesMuscleGroups
+        }
+    }
+
     var body: some View {
         Group {
-            if exercises.isEmpty {
-                ContentUnavailableView(
-                    "No Exercises",
-                    systemImage: "dumbbell",
-                    description: Text("Create exercises in the Exercise Library first")
-                )
+            if filteredExercises.isEmpty {
+                if exercises.isEmpty {
+                    ContentUnavailableView(
+                        "No Exercises",
+                        systemImage: "dumbbell",
+                        description: Text("Create exercises in the Exercise Library first")
+                    )
+                } else {
+                    ContentUnavailableView(
+                        "No Results",
+                        systemImage: "magnifyingglass",
+                        description: Text("No exercises match your search and filters")
+                    )
+                }
             } else {
-                List(exercises) { exercise in
+                List(filteredExercises) { exercise in
                     Button {
                         selectedExercise = exercise
                         dismiss()
@@ -65,6 +95,37 @@ struct ExerciseSelectionList: View {
         }
         .navigationTitle("Select Exercise")
         .navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $searchQuery, prompt: "Search exercises")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu {
+                    ForEach(availableMuscleGroups, id: \.self) { muscleGroup in
+                        Toggle(isOn: Binding(
+                            get: { selectedMuscleGroupFilters.contains(muscleGroup) },
+                            set: { isSelected in
+                                if isSelected {
+                                    selectedMuscleGroupFilters.insert(muscleGroup)
+                                } else {
+                                    selectedMuscleGroupFilters.remove(muscleGroup)
+                                }
+                            }
+                        )) {
+                            Text(muscleGroup.rawValue)
+                        }
+                    }
+
+                    if !selectedMuscleGroupFilters.isEmpty {
+                        Divider()
+                        Button("Clear Filters") {
+                            selectedMuscleGroupFilters.removeAll()
+                        }
+                    }
+                } label: {
+                    Label("Filter", systemImage: selectedMuscleGroupFilters.isEmpty ? "line.3.horizontal.decrease.circle" : "line.3.horizontal.decrease.circle.fill")
+                }
+                .disabled(availableMuscleGroups.isEmpty)
+            }
+        }
     }
 }
 
