@@ -12,4 +12,19 @@ enum TimeOfDay: String, Codable, CaseIterable {
     case afternoon = "Afternoon"
     case evening = "Evening"
     case night = "Night"
+
+    var sortOrder: Int {
+        switch self {
+        case .morning: return 1
+        case .afternoon: return 2
+        case .evening: return 3
+        case .night: return 4
+        }
+    }
+}
+
+extension TimeOfDay: Comparable {
+    static func < (lhs: TimeOfDay, rhs: TimeOfDay) -> Bool {
+        lhs.sortOrder < rhs.sortOrder
+    }
 }

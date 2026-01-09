@@ -16,9 +16,9 @@ struct WorkoutsList: View {
                 return w1.week < w2.week
             }
             if w1.dayOfWeek != w2.dayOfWeek {
-                return w1.dayOfWeek.rawValue < w2.dayOfWeek.rawValue
+                return w1.dayOfWeek < w2.dayOfWeek
             }
-            return w1.timeOfDay.rawValue < w2.timeOfDay.rawValue
+            return w1.timeOfDay < w2.timeOfDay
         }
     }
 
