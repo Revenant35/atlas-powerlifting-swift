@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		9E343D762F11771E00403058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E343D5E2F11771D00403058 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E343D652F11771D00403058;
+			remoteInfo = AtlasPowerliftingApp;
+		};
+		9E343D802F11771E00403058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E343D5E2F11771D00403058 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E343D652F11771D00403058;
+			remoteInfo = AtlasPowerliftingApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9E343D662F11771D00403058 /* AtlasPowerliftingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasPowerliftingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E343D752F11771E00403058 /* AtlasPowerliftingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasPowerliftingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E343D7F2F11771E00403058 /* AtlasPowerliftingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasPowerliftingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9E343D682F11771D00403058 /* AtlasPowerliftingApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AtlasPowerliftingApp;
+			sourceTree = "<group>";
+		};
+		9E343D782F11771E00403058 /* AtlasPowerliftingAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AtlasPowerliftingAppTests;
+			sourceTree = "<group>";
+		};
+		9E343D822F11771E00403058 /* AtlasPowerliftingAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AtlasPowerliftingAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E343D632F11771D00403058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E343D722F11771E00403058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E343D7C2F11771E00403058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9E343D5D2F11771D00403058 = {
+			isa = PBXGroup;
+			children = (
+				9E343D682F11771D00403058 /* AtlasPowerliftingApp */,
+				9E343D782F11771E00403058 /* AtlasPowerliftingAppTests */,
+				9E343D822F11771E00403058 /* AtlasPowerliftingAppUITests */,
+				9E343D672F11771D00403058 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9E343D672F11771D00403058 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E343D662F11771D00403058 /* AtlasPowerliftingApp.app */,
+				9E343D752F11771E00403058 /* AtlasPowerliftingAppTests.xctest */,
+				9E343D7F2F11771E00403058 /* AtlasPowerliftingAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E343D652F11771D00403058 /* AtlasPowerliftingApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E343D892F11771E00403058 /* Build configuration list for PBXNativeTarget "AtlasPowerliftingApp" */;
+			buildPhases = (
+				9E343D622F11771D00403058 /* Sources */,
+				9E343D632F11771D00403058 /* Frameworks */,
+				9E343D642F11771D00403058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9E343D682F11771D00403058 /* AtlasPowerliftingApp */,
+			);
+			name = AtlasPowerliftingApp;
+			packageProductDependencies = (
+			);
+			productName = AtlasPowerliftingApp;
+			productReference = 9E343D662F11771D00403058 /* AtlasPowerliftingApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9E343D742F11771E00403058 /* AtlasPowerliftingAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E343D8C2F11771E00403058 /* Build configuration list for PBXNativeTarget "AtlasPowerliftingAppTests" */;
+			buildPhases = (
+				9E343D712F11771E00403058 /* Sources */,
+				9E343D722F11771E00403058 /* Frameworks */,
+				9E343D732F11771E00403058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E343D772F11771E00403058 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9E343D782F11771E00403058 /* AtlasPowerliftingAppTests */,
+			);
+			name = AtlasPowerliftingAppTests;
+			packageProductDependencies = (
+			);
+			productName = AtlasPowerliftingAppTests;
+			productReference = 9E343D752F11771E00403058 /* AtlasPowerliftingAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9E343D7E2F11771E00403058 /* AtlasPowerliftingAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E343D8F2F11771E00403058 /* Build configuration list for PBXNativeTarget "AtlasPowerliftingAppUITests" */;
+			buildPhases = (
+				9E343D7B2F11771E00403058 /* Sources */,
+				9E343D7C2F11771E00403058 /* Frameworks */,
+				9E343D7D2F11771E00403058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E343D812F11771E00403058 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9E343D822F11771E00403058 /* AtlasPowerliftingAppUITests */,
+			);
+			name = AtlasPowerliftingAppUITests;
+			packageProductDependencies = (
+			);
+			productName = AtlasPowerliftingAppUITests;
+			productReference = 9E343D7F2F11771E00403058 /* AtlasPowerliftingAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E343D5E2F11771D00403058 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					9E343D652F11771D00403058 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					9E343D742F11771E00403058 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 9E343D652F11771D00403058;
+					};
+					9E343D7E2F11771E00403058 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 9E343D652F11771D00403058;
+					};
+				};
+			};
+			buildConfigurationList = 9E343D612F11771D00403058 /* Build configuration list for PBXProject "AtlasPowerliftingApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9E343D5D2F11771D00403058;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9E343D672F11771D00403058 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E343D652F11771D00403058 /* AtlasPowerliftingApp */,
+				9E343D742F11771E00403058 /* AtlasPowerliftingAppTests */,
+				9E343D7E2F11771E00403058 /* AtlasPowerliftingAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E343D642F11771D00403058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E343D732F11771E00403058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E343D7D2F11771E00403058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E343D622F11771D00403058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E343D712F11771E00403058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E343D7B2F11771E00403058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E343D772F11771E00403058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E343D652F11771D00403058 /* AtlasPowerliftingApp */;
+			targetProxy = 9E343D762F11771E00403058 /* PBXContainerItemProxy */;
+		};
+		9E343D812F11771E00403058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E343D652F11771D00403058 /* AtlasPowerliftingApp */;
+			targetProxy = 9E343D802F11771E00403058 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9E343D872F11771E00403058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2BZA6CU4QT;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9E343D882F11771E00403058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2BZA6CU4QT;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E343D8A2F11771E00403058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BZA6CU4QT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlas-powerlifting.AtlasPowerliftingApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E343D8B2F11771E00403058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BZA6CU4QT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlas-powerlifting.AtlasPowerliftingApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9E343D8D2F11771E00403058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BZA6CU4QT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlas-powerlifting.AtlasPowerliftingAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtlasPowerliftingApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AtlasPowerliftingApp";
+			};
+			name = Debug;
+		};
+		9E343D8E2F11771E00403058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BZA6CU4QT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlas-powerlifting.AtlasPowerliftingAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtlasPowerliftingApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AtlasPowerliftingApp";
+			};
+			name = Release;
+		};
+		9E343D902F11771E00403058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BZA6CU4QT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlas-powerlifting.AtlasPowerliftingAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AtlasPowerliftingApp;
+			};
+			name = Debug;
+		};
+		9E343D912F11771E00403058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BZA6CU4QT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlas-powerlifting.AtlasPowerliftingAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AtlasPowerliftingApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E343D612F11771D00403058 /* Build configuration list for PBXProject "AtlasPowerliftingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E343D872F11771E00403058 /* Debug */,
+				9E343D882F11771E00403058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E343D892F11771E00403058 /* Build configuration list for PBXNativeTarget "AtlasPowerliftingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E343D8A2F11771E00403058 /* Debug */,
+				9E343D8B2F11771E00403058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E343D8C2F11771E00403058 /* Build configuration list for PBXNativeTarget "AtlasPowerliftingAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E343D8D2F11771E00403058 /* Debug */,
+				9E343D8E2F11771E00403058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E343D8F2F11771E00403058 /* Build configuration list for PBXNativeTarget "AtlasPowerliftingAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E343D902F11771E00403058 /* Debug */,
+				9E343D912F11771E00403058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E343D5E2F11771D00403058 /* Project object */;
+}
