@@ -14,14 +14,14 @@ final class Workout {
     var workoutDescription: String
     var week: Int
     var dayOfWeek: DayOfWeek
-    var timeOfDay: TimeOfDay
+    var timeOfDay: TimeOfDay?
 
     var program: WorkoutProgram?
 
     @Relationship(deleteRule: .cascade, inverse: \WorkoutExercise.workout)
     var exercises: [WorkoutExercise] = []
 
-    init(name: String, workoutDescription: String, week: Int, dayOfWeek: DayOfWeek, timeOfDay: TimeOfDay, program: WorkoutProgram? = nil) {
+    init(name: String, workoutDescription: String, week: Int, dayOfWeek: DayOfWeek, timeOfDay: TimeOfDay? = nil, program: WorkoutProgram? = nil) {
         self.name = name
         self.workoutDescription = workoutDescription
         self.week = week

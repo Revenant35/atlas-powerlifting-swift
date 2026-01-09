@@ -18,7 +18,13 @@ struct WorkoutsList: View {
             if w1.dayOfWeek != w2.dayOfWeek {
                 return w1.dayOfWeek < w2.dayOfWeek
             }
-            return w1.timeOfDay < w2.timeOfDay
+            // Handle optional timeOfDay - nil comes first
+            switch (w1.timeOfDay, w2.timeOfDay) {
+            case (nil, nil): return false
+            case (nil, _): return true
+            case (_, nil): return false
+            case let (t1?, t2?): return t1 < t2
+            }
         }
     }
 
@@ -40,8 +46,10 @@ struct WorkoutsList: View {
                                 .font(.headline)
                             HStack {
                                 Text(workout.dayOfWeek.rawValue)
-                                Text("•")
-                                Text(workout.timeOfDay.rawValue)
+                                if let timeOfDay = workout.timeOfDay {
+                                    Text("•")
+                                    Text(timeOfDay.rawValue)
+                                }
                             }
                             .font(.subheadline)
                             .foregroundStyle(.secondary)

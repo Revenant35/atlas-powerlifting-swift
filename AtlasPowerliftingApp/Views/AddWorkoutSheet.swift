@@ -19,6 +19,7 @@ struct AddWorkoutSheet: View {
     @State private var description: String = ""
     @State private var week: Int
     @State private var dayOfWeek: DayOfWeek = .monday
+    @State private var includeTimeOfDay: Bool = false
     @State private var timeOfDay: TimeOfDay = .morning
 
     init(program: WorkoutProgram, initialWeek: Int = 1) {
@@ -50,9 +51,13 @@ struct AddWorkoutSheet: View {
                         }
                     }
 
-                    Picker("Time of Day", selection: $timeOfDay) {
-                        ForEach(TimeOfDay.allCases, id: \.self) { time in
-                            Text(time.rawValue).tag(time)
+                    Toggle("Specify Time of Day", isOn: $includeTimeOfDay)
+
+                    if includeTimeOfDay {
+                        Picker("Time of Day", selection: $timeOfDay) {
+                            ForEach(TimeOfDay.allCases, id: \.self) { time in
+                                Text(time.rawValue).tag(time)
+                            }
                         }
                     }
                 }
@@ -87,7 +92,7 @@ struct AddWorkoutSheet: View {
                 workoutDescription: trimmedDescription,
                 week: week,
                 dayOfWeek: dayOfWeek,
-                timeOfDay: timeOfDay,
+                timeOfDay: includeTimeOfDay ? timeOfDay : nil,
                 program: program
             )
             modelContext.insert(newWorkout)

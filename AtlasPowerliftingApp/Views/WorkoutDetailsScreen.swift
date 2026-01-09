@@ -47,8 +47,10 @@ struct WorkoutDetailsScreen: View {
                                 Label("Week \(workout.week)", systemImage: "calendar")
                                 Spacer()
                                 Label(workout.dayOfWeek.rawValue, systemImage: "calendar.day.timeline.leading")
-                                Spacer()
-                                Label(workout.timeOfDay.rawValue, systemImage: "clock")
+                                if let timeOfDay = workout.timeOfDay {
+                                    Spacer()
+                                    Label(timeOfDay.rawValue, systemImage: "clock")
+                                }
                             }
                             .font(.body)
                         }
