@@ -13,6 +13,11 @@ struct AtlasPowerliftingAppApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
+            Exercise.self,
+            WorkoutProgram.self,
+            Workout.self,
+            WorkoutExercise.self,
+            WorkoutSet.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
