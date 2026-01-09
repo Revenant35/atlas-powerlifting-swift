@@ -9,7 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct ExerciseSelectionList: View {
-    @Query(sort: \Exercise.name) private var exercises: [Exercise]
+    @Query(
+        sort: \Exercise.createdAt,
+        order: .reverse
+    )
+    private var exercises: [Exercise]
 
     @Binding var selectedExercise: Exercise?
 

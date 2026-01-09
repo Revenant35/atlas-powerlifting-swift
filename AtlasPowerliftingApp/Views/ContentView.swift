@@ -10,7 +10,17 @@ import SwiftData
 
 struct ContentView: View {
     var body: some View {
-        ProgramListScreen()
+        TabView {
+            ProgramListScreen()
+                .tabItem {
+                    Label("Programs", systemImage: "list.bullet")
+                }
+
+            ExerciseListScreen()
+                .tabItem {
+                    Label("Exercises", systemImage: "dumbbell")
+                }
+        }
     }
 }
 
