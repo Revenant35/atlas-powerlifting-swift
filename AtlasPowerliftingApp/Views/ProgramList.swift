@@ -27,7 +27,7 @@ struct ProgramList: View {
         List {
             ForEach(filteredPrograms) { program in
                 NavigationLink {
-                    ProgramDetailsScreen(program: program)
+                    ProgramDetailsScreen(programID: program.persistentModelID)
                 } label: {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(program.name)

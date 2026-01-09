@@ -10,57 +10,80 @@ import SwiftData
 
 struct WorkoutDetailsScreen: View {
     @Environment(\.modelContext) private var modelContext
-    @Bindable var workout: Workout
+    @Query private var workouts: [Workout]
+    @Query private var allWorkoutExercises: [WorkoutExercise]
+
+    let workoutID: PersistentIdentifier
+
+    private var workout: Workout? {
+        workouts.first { $0.persistentModelID == workoutID }
+    }
+
+    private var workoutExercises: [WorkoutExercise] {
+        allWorkoutExercises.filter { $0.workout?.persistentModelID == workoutID }
+    }
 
     var body: some View {
-        VStack(spacing: 0) {
-            // Workout info header
-            VStack(alignment: .leading, spacing: 12) {
-                if !workout.workoutDescription.isEmpty {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Description")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                        Text(workout.workoutDescription)
+        Group {
+            if let workout = workout {
+                VStack(spacing: 0) {
+                    // Workout info header
+                    VStack(alignment: .leading, spacing: 12) {
+                        if !workout.workoutDescription.isEmpty {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Description")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                Text(workout.workoutDescription)
+                                    .font(.body)
+                            }
+                        }
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Schedule")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            HStack {
+                                Label("Week \(workout.week)", systemImage: "calendar")
+                                Spacer()
+                                Label(workout.dayOfWeek.rawValue, systemImage: "calendar.day.timeline.leading")
+                                Spacer()
+                                Label(workout.timeOfDay.rawValue, systemImage: "clock")
+                            }
                             .font(.body)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .background(Color(.systemGroupedBackground))
+
+                    WorkoutExercisesList(workoutExercises: workoutExercises)
+                }
+                .navigationTitle(workout.name)
+                .navigationBarTitleDisplayMode(.large)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: addExercise) {
+                            Label("Add Exercise", systemImage: "plus")
+                        }
                     }
                 }
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Schedule")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    HStack {
-                        Label("Week \(workout.week)", systemImage: "calendar")
-                        Spacer()
-                        Label(workout.dayOfWeek.rawValue, systemImage: "calendar.day.timeline.leading")
-                        Spacer()
-                        Label(workout.timeOfDay.rawValue, systemImage: "clock")
-                    }
-                    .font(.body)
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
-            .background(Color(.systemGroupedBackground))
-
-            WorkoutExercisesList(workoutExercises: workout.exercises)
-        }
-        .navigationTitle(workout.name)
-        .navigationBarTitleDisplayMode(.large)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: addExercise) {
-                    Label("Add Exercise", systemImage: "plus")
-                }
+            } else {
+                ContentUnavailableView(
+                    "Workout Not Found",
+                    systemImage: "exclamationmark.triangle",
+                    description: Text("This workout may have been deleted")
+                )
             }
         }
     }
 
     private func addExercise() {
+        guard let workout = workout else { return }
+
         withAnimation {
             // Get the next order number
-            let nextOrder = (workout.exercises.map { $0.order }.max() ?? 0) + 1
+            let nextOrder = (workoutExercises.map { $0.order }.max() ?? 0) + 1
 
             let newWorkoutExercise = WorkoutExercise(
                 exercise: nil,
@@ -116,7 +139,7 @@ struct WorkoutDetailsScreen: View {
     container.mainContext.insert(set3)
 
     return NavigationStack {
-        WorkoutDetailsScreen(workout: workout)
+        WorkoutDetailsScreen(workoutID: workout.persistentModelID)
     }
     .modelContainer(container)
 }

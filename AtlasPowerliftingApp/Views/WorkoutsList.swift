@@ -33,7 +33,7 @@ struct WorkoutsList: View {
             List {
                 ForEach(sortedWorkouts) { workout in
                     NavigationLink {
-                        WorkoutDetailsScreen(workout: workout)
+                        WorkoutDetailsScreen(workoutID: workout.persistentModelID)
                     } label: {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(workout.name)
