@@ -9,93 +9,74 @@ import SwiftUI
 import SwiftData
 
 struct ProgramDetailsScreen: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var programs: [WorkoutProgram]
-    @Query private var allWorkouts: [Workout]
+    @Bindable var program: WorkoutProgram
+
     @State private var selectedWeek: Int = 1
     @State private var showingAddWorkout = false
 
-    let programID: PersistentIdentifier
-
-    private var program: WorkoutProgram? {
-        programs.first { $0.persistentModelID == programID }
-    }
-
-    private var programWorkouts: [Workout] {
-        allWorkouts.filter { $0.program?.persistentModelID == programID }
-    }
-
     private var availableWeeks: [Int] {
-        let weeks = Set(programWorkouts.map { $0.week })
+        let weeks = Set(program.workouts.map { $0.week })
         return weeks.sorted()
     }
 
     private var filteredWorkouts: [Workout] {
-        programWorkouts.filter { $0.week == selectedWeek }
+        program.workouts.filter { $0.week == selectedWeek }
     }
 
     var body: some View {
         Group {
-            if let program = program {
-                VStack(spacing: 0) {
-                    if !program.programDescription.isEmpty {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Description")
-                                .font(.headline)
-                                .foregroundStyle(.secondary)
-                            Text(program.programDescription)
-                                .font(.body)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                        .background(Color(.systemGroupedBackground))
+            VStack(spacing: 0) {
+                if !program.programDescription.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Description")
+                            .font(.headline)
+                            .foregroundStyle(.secondary)
+                        Text(program.programDescription)
+                            .font(.body)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .background(Color(.systemGroupedBackground))
+                }
 
-                    if !availableWeeks.isEmpty {
-                        Picker("Week", selection: $selectedWeek) {
-                            ForEach(availableWeeks, id: \.self) { week in
-                                Text("Week \(week)").tag(week)
-                            }
+                if !availableWeeks.isEmpty {
+                    Picker("Week", selection: $selectedWeek) {
+                        ForEach(availableWeeks, id: \.self) { week in
+                            Text("Week \(week)").tag(week)
                         }
-                        .pickerStyle(.segmented)
-                        .padding()
                     }
+                    .pickerStyle(.segmented)
+                    .padding()
+                }
 
-                    WorkoutsList(workouts: filteredWorkouts)
-                }
-                .navigationTitle(program.name)
-                .navigationBarTitleDisplayMode(.large)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { showingAddWorkout = true }) {
-                            Label("Add Workout", systemImage: "plus")
-                        }
+                WorkoutsList(workouts: filteredWorkouts)
+            }
+            .navigationTitle(program.name)
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { showingAddWorkout = true }) {
+                        Label("Add Workout", systemImage: "plus")
                     }
                 }
-                .sheet(isPresented: $showingAddWorkout) {
-                    AddWorkoutSheet(program: program, initialWeek: selectedWeek)
+            }
+            .sheet(isPresented: $showingAddWorkout) {
+                AddWorkoutSheet(program: program, week: selectedWeek)
+            }
+            .onAppear {
+                if let firstWeek = availableWeeks.first {
+                    selectedWeek = firstWeek
                 }
-                .onAppear {
-                    if let firstWeek = availableWeeks.first {
-                        selectedWeek = firstWeek
-                    }
-                }
-            } else {
-                ContentUnavailableView(
-                    "Program Not Found",
-                    systemImage: "exclamationmark.triangle",
-                    description: Text("This program may have been deleted")
-                )
             }
         }
     }
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: WorkoutProgram.self, Workout.self, configurations: config)
-
-    let program = WorkoutProgram(name: "Starting Strength", programDescription: "A beginner strength training program focused on compound movements")
+    let program = WorkoutProgram(
+        name: "Starting Strength",
+        programDescription: "A beginner strength training program focused on compound movements"
+    )
 
     let workout1 = Workout(
         name: "Workout A",
@@ -121,14 +102,10 @@ struct ProgramDetailsScreen: View {
         timeOfDay: .morning,
         program: program
     )
-
-    container.mainContext.insert(program)
-    container.mainContext.insert(workout1)
-    container.mainContext.insert(workout2)
-    container.mainContext.insert(workout3)
+    
+    program.workouts = [workout1, workout2, workout3]
 
     return NavigationStack {
-        ProgramDetailsScreen(programID: program.persistentModelID)
+        ProgramDetailsScreen(program: program)
     }
-    .modelContainer(container)
 }
