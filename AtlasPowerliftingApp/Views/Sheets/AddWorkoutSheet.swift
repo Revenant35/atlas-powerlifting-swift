@@ -13,12 +13,20 @@ struct AddWorkoutSheet: View {
 
     @Bindable var program: WorkoutProgram
     let week: Int
+    let day: DayOfWeek
 
     @State private var name: String = ""
     @State private var description: String = ""
-    @State private var dayOfWeek: DayOfWeek = .monday
+    @State private var dayOfWeek: DayOfWeek
     @State private var includeTimeOfDay: Bool = false
     @State private var timeOfDay: TimeOfDay = .morning
+
+    init(program: WorkoutProgram, week: Int, day: DayOfWeek) {
+        self.program = program
+        self.week = week
+        self.day = day
+        _dayOfWeek = State(initialValue: day)
+    }
 
     var body: some View {
         NavigationStack {
@@ -96,5 +104,5 @@ struct AddWorkoutSheet: View {
 #Preview {
     let program = WorkoutProgram(name: "Starting Strength", programDescription: "")
 
-    return AddWorkoutSheet(program: program, week: 2)
+    return AddWorkoutSheet(program: program, week: 2, day: .wednesday)
 }

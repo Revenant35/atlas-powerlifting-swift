@@ -12,62 +12,98 @@ struct ProgramDetailsScreen: View {
     @Bindable var program: WorkoutProgram
 
     @State private var selectedWeek: Int = 1
+    @State private var selectedDay: DayOfWeek = .monday
     @State private var showingAddWorkout = false
 
-    private var availableWeeks: [Int] {
-        let weeks = Set(program.workouts.map { $0.week })
-        return weeks.sorted()
+    private var filteredWorkouts: [Workout] {
+        program.workouts
+            .filter { $0.week == selectedWeek && $0.dayOfWeek == selectedDay }
+            .sorted { w1, w2 in
+                // Sort by time of day (nil comes first)
+                switch (w1.timeOfDay, w2.timeOfDay) {
+                case (nil, nil): return false
+                case (nil, _): return true
+                case (_, nil): return false
+                case let (t1?, t2?): return t1 < t2
+                }
+            }
     }
 
-    private var filteredWorkouts: [Workout] {
-        program.workouts.filter { $0.week == selectedWeek }
+    private var markedDays: [DayOfWeek] {
+        let daysWithWorkouts = program.workouts
+            .filter { $0.week == selectedWeek }
+            .map { $0.dayOfWeek }
+        return Array(Set(daysWithWorkouts)).sorted()
     }
 
     var body: some View {
-        Group {
-            VStack(spacing: 0) {
-                if !program.programDescription.isEmpty {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Description")
-                            .font(.headline)
-                            .foregroundStyle(.secondary)
-                        Text(program.programDescription)
-                            .font(.body)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                    .background(Color(.systemGroupedBackground))
+        VStack(spacing: 0) {
+            // Program description (if present)
+            if !program.programDescription.isEmpty {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Description")
+                        .font(.headline)
+                        .foregroundStyle(.secondary)
+                    Text(program.programDescription)
+                        .font(.body)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .background(Color(.systemGroupedBackground))
+            }
 
-                if !availableWeeks.isEmpty {
-                    Picker("Week", selection: $selectedWeek) {
-                        ForEach(availableWeeks, id: \.self) { week in
-                            Text("Week \(week)").tag(week)
+            // Week stepper
+            HStack {
+                Text("Week")
+                Spacer()
+                Stepper(value: $selectedWeek, in: 1...12) {
+                    Text("\(selectedWeek)")
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .padding()
+
+            DayOfWeekPicker(selectedDay: $selectedDay, markedDays: markedDays)
+                .padding(.horizontal)
+
+            // Content (rest day or workouts)
+            Group {
+                if filteredWorkouts.isEmpty {
+                    // Rest Day View
+                    ContentUnavailableView {
+                        Label("Rest Day", systemImage: "bed.double.fill")
+                    } description: {
+                        Text("No workouts scheduled for \(selectedDay.rawValue) of Week \(selectedWeek)")
+                    } actions: {
+                        Button(action: { showingAddWorkout = true }) {
+                            Text("Add Workout")
                         }
+                        .buttonStyle(.borderedProminent)
                     }
-                    .pickerStyle(.segmented)
-                    .padding()
-                }
-
-                WorkoutsList(workouts: filteredWorkouts)
-            }
-            .navigationTitle(program.name)
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { showingAddWorkout = true }) {
-                        Label("Add Workout", systemImage: "plus")
+                } else {
+                    // Inline Workouts View
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            ForEach(filteredWorkouts) { workout in
+                                WorkoutCard(workout: workout)
+                            }
+                        }
+                        .padding()
                     }
                 }
             }
-            .sheet(isPresented: $showingAddWorkout) {
-                AddWorkoutSheet(program: program, week: selectedWeek)
-            }
-            .onAppear {
-                if let firstWeek = availableWeeks.first {
-                    selectedWeek = firstWeek
+        }
+        .navigationTitle(program.name)
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: { showingAddWorkout = true }) {
+                    Label("Add Workout", systemImage: "plus")
                 }
             }
+        }
+        .sheet(isPresented: $showingAddWorkout) {
+            AddWorkoutSheet(program: program, week: selectedWeek, day: selectedDay)
         }
     }
 }

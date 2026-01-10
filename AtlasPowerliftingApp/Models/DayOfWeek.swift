@@ -27,6 +27,18 @@ enum DayOfWeek: String, Codable, CaseIterable {
         case .sunday: return 7
         }
     }
+    
+    var shortName: String {
+        switch self {
+        case .monday: return "M"
+        case .tuesday: return "T"
+        case .wednesday: return "W"
+        case .thursday: return "Th"
+        case .friday: return "F"
+        case .saturday: return "S"
+        case .sunday: return "Su"
+        }
+    }
 }
 
 extension DayOfWeek: Comparable {
