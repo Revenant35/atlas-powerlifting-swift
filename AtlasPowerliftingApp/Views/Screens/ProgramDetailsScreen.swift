@@ -53,18 +53,11 @@ struct ProgramDetailsScreen: View {
             }
 
             // Week stepper
-            HStack {
-                Text("Week")
-                Spacer()
-                Stepper(value: $selectedWeek, in: 1...12) {
-                    Text("\(selectedWeek)")
-                        .foregroundStyle(.secondary)
-                }
-            }
-            .padding()
+            WeekPicker(selectedWeek: $selectedWeek)
+                .padding(.all)
 
             DayOfWeekPicker(selectedDay: $selectedDay, markedDays: markedDays)
-                .padding(.horizontal)
+                .padding(.all)
 
             // Content (rest day or workouts)
             Group {

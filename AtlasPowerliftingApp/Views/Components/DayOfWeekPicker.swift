@@ -52,7 +52,6 @@ struct DayOfWeekPicker: View {
                 .foregroundColor(selectedDay == day ? .accentColor : .primary)
             }
         }
-        .padding(.horizontal)
     }
 
     private func isMarked(_ day: DayOfWeek) -> Bool {

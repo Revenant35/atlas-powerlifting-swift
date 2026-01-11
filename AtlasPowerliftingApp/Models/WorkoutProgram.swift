@@ -28,4 +28,7 @@ final class WorkoutProgram {
     func updateTimestamp() {
         self.updatedAt = Date()
     }
+    
+    static let minWeeks = 1
+    static let maxWeeks = 12
 }
