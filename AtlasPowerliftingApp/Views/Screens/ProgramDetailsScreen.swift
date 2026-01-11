@@ -66,7 +66,7 @@ struct ProgramDetailsScreen: View {
                     ContentUnavailableView {
                         Label("Rest Day", systemImage: "bed.double.fill")
                     } description: {
-                        Text("No workouts scheduled for \(selectedDay.rawValue) of Week \(selectedWeek)")
+                        Text("No workouts scheduled")
                     } actions: {
                         Button(action: { showingAddWorkout = true }) {
                             Text("Add Workout")
